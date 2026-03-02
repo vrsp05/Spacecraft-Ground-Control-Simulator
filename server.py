@@ -19,9 +19,20 @@ while active_mission:
     
     print(f"[SPACECRAFT] Processing: {data}")
 
-    # Simple GNC Command Logic
+# ... (Inside your while loop) ...
+    
+    # New GNC Command Logic with File Reading
     if data == "GET_STATUS":
         response = "STATUS: ALL SYSTEMS NOMINAL. FUEL: 85%"
+    
+    elif data == "READ_LOG":
+        try:
+            with open("mission_log.txt", "r") as file:
+                lines = file.readlines()
+                # Get the very last line of the file (most recent telemetry)
+                response = f"[LOG DATA]: {lines[-1].strip()}"
+        except FileNotFoundError:
+            response = "ERROR: MISSION_LOG.TXT NOT FOUND ON SPACECRAFT."
     elif data == "THRUST_ON":
         response = "ACTION: MAIN ENGINES IGNITED."
     elif data == "EXIT":

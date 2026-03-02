@@ -4,7 +4,7 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(('127.0.0.1', 5050))
 print("[GROUND CONTROL] Connection established.")
 
-print("Available Commands: GET_STATUS, THRUST_ON, EXIT")
+print("Available Commands: GET_STATUS, READ_LOG, THRUST_ON, EXIT")
 
 while True:
     # Get user input
