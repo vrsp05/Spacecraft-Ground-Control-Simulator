@@ -7,7 +7,7 @@ server_socket.listen(1)
 
 print("[SPACECRAFT] Systems online. Standby for Ground Control...")
 
-# REQUIREMENT #5: The Outer Loop (Keeps the server running after disconnects)
+# The Outer Loop (Keeps the server running after disconnects)
 while True:
     print("\n[SPACECRAFT] Waiting for a new connection...")
     conn, addr = server_socket.accept()
@@ -58,5 +58,3 @@ while True:
     # Close the specific connection, but the "while True" keeps the server alive!
     conn.close()
     print(f"[SPACECRAFT] Mission with {addr} concluded. Returning to standby.")
-
-# the server stays up until you manually stop it (Ctrl+C).
